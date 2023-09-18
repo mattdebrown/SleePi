@@ -1,14 +1,5 @@
-// renderer.js
-window.onload = () => {
-  function updateClock() {
-    const now = new Date();
-    const time = now.toLocaleTimeString();
-    document.getElementById('clock').textContent = `Current Time: ${time}`;
-  }
+let timeDisplay = document.getElementById('time-display');
 
-  // Initial update
-  updateClock();
-
-  // Update the clock every second
-  setInterval(updateClock, 1000);
-};
+window.electronAPI.onUpdateTime((event, value) => {
+    timeDisplay.textContent = value;
+})

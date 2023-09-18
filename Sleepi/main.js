@@ -1,12 +1,13 @@
-const { app, BrowserWindow } = require('electron');
+const { app, BrowserWindow, ipcMain } = require('electron');
+const path = require('node:path'); 
 
 let mainWindow;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    width: 400,
-    height: 200,
+    fullscreen: true,
     webPreferences: {
+      preload: path.join(__dirname, 'preload.js'), 
       nodeIntegration: true,
     },
   });
