@@ -15,6 +15,10 @@ app.on('ready', () => {
   // Load your HTML file
   mainWindow.loadFile('index.html');
 
+  ipcMain.on('close-button', () => {
+    mainWindow.close();
+  });
+
   // Create and update the clock
   function updateClock() {
     const now = new Date();

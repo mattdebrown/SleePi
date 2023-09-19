@@ -1,25 +1,34 @@
-
 body {
     font-family: Arial, sans-serif;
-    background-color: #000000;
+    background-color: #262927;
     display: flex;
-    justify-content: center; /* Horizontally center */
-    align-items: center; /* Vertically center */
-    height: 100vh; /* 100% of the viewport height */
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     margin: 0; 
 }
 
 #time-display {
-    /* Remove default body margin */
     font-size: 100px;
-    width: 200px; /* Adjust width as needed */
-    height: 200px; /* Adjust height as needed */
+    font-weight: 800;
+    width: 80%; 
+    height: 200px; 
     text-align: center;
     padding: 20px;
     border-radius: 5px;
     color: #AAA;
 }
 
-#minimize-button {
-    align-items:flex-end;
+.btn {
+    width: 80px;
+    height: 80px;
+    background-color: #262927;
+    color: #AAA;
+    border: 2px double #AAA;
+}
+
+#close-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
 }
