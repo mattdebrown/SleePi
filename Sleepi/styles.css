@@ -9,7 +9,9 @@ body {
 }
 
 #time-display {
-    font-size: 100px;
+    font-family: 'Barlow', sans-serif;
+    font-family: 'Stardos Stencil', cursive;
+    font-size: 200px;
     font-weight: 800;
     width: 80%; 
     height: 200px; 
@@ -23,12 +25,15 @@ body {
     width: 80px;
     height: 80px;
     background-color: #262927;
+    font-weight: 500;
+    font-family: 'Stardos Stencil', cursive;
     color: #AAA;
-    border: 2px double #AAA;
+    border: 10px ridge #666;
 }
 
 #close-button {
     position: absolute;
     top: 10px;
     left: 10px;
+    font-size: 60px;
 }
