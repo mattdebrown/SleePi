@@ -1,5 +1,6 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path'); 
+const screen = require('./screen/screen.js');
 
 let mainWindow;
 
@@ -17,6 +18,11 @@ app.on('ready', () => {
 
   ipcMain.on('close-button', () => {
     mainWindow.close();
+  });
+
+  ipcMain.on('sleep-button', () => {
+    console.log('main.js sleep button')
+    screen.sleep();
   });
 
   // Create and update the clock
