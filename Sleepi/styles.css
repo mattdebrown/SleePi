@@ -1,6 +1,6 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #262927;
+    font-family: 'Stardos Stencil', cursive;
+    background-color: #313d35;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,10 +8,16 @@ body {
     margin: 0; 
 }
 
+#main-menu {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+}
+
 #time-display {
     font-family: 'Barlow', sans-serif;
     font-family: 'Stardos Stencil', cursive;
-    font-size: 200px;
+    font-size: 80px;
     font-weight: 800;
     width: 80%; 
     height: 200px; 
@@ -25,15 +31,24 @@ body {
     width: 80px;
     height: 80px;
     background-color: #262927;
+    font-size: 60px;
     font-weight: 500;
     font-family: 'Stardos Stencil', cursive;
     color: #AAA;
     border: 10px ridge #666;
 }
 
-#close-button {
+#sleep-button {
+    font-size: 25px;
+}
+
+#weather-summary {
+    font-size: 25px;
+    background-color: rgb(117, 207, 177);
+    border-radius: 5px;
     position: absolute;
-    top: 10px;
-    left: 10px;
-    font-size: 60px;
+    bottom: 10px;
+    right: 10px;
+    height: 100px;
+    width: 200px;
 }

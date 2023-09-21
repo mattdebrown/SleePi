@@ -1,6 +1,7 @@
 const { app, BrowserWindow, ipcMain } = require('electron');
 const path = require('node:path'); 
 const screen = require('./screen/screen.js');
+const weather = require('./weather/weatherService.js');
 
 let mainWindow;
 
@@ -35,6 +36,14 @@ app.on('ready', () => {
   // Update the clock every second
   setInterval(updateClock, 1000);
 
+  function updateWeather()
+  {
+    let currentWeather = weather.getCurrentWeather();
+    mainWindow.webContents.send('update-weather', currentWeather);
+  }
+
+  setInterval(updateWeather, 2000);
+  
   mainWindow.on('closed', () => {
     mainWindow = null;
   });
