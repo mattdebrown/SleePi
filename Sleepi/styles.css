@@ -31,6 +31,7 @@ body {
     width: 80px;
     height: 80px;
     background-color: #262927;
+
     font-size: 60px;
     font-weight: 500;
     font-family: 'Stardos Stencil', cursive;
@@ -43,12 +44,26 @@ body {
 }
 
 #weather-summary {
-    font-size: 25px;
-    background-color: rgb(117, 207, 177);
-    border-radius: 5px;
+    margin: 30px;
+    padding: 30px;
+    align-items: right;
+    font-size: 20px;
+    background-color: #38473d;
+    color: #DDD;
+    border-radius: 20px;
     position: absolute;
     bottom: 10px;
     right: 10px;
+    height: 110px;
+    width: 290px;
+    z-index: 1;
+}
+
+#condition-image {
+    position: absolute;
+    width: 100px;
     height: 100px;
-    width: 200px;
+    bottom: 5px;
+    right: 10px;
+    z-index: 0;
 }
