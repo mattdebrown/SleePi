@@ -8,28 +8,29 @@ let temperatureElement;
 let iconElement;
 
 function construct(){
-conditionImage = document.createElement('img');
-    conditionImage.src = 'https://random.imagecdn.app/64/64';
+    conditionImage = document.createElement('img');
+    conditionImage.src = 'https://cdn.weatherapi.com/weather/128x128/day/116.png';
     conditionImage.id = 'condition-image';
     parentDiv.append(conditionImage);
 
     cityElement = document.createElement('div');
-    cityElement.innerText = "Eocys";
+    cityElement.innerText = "Location";
     parentDiv.append(cityElement);
 
-    temperatureElement = document.createElement('div');
-    temperatureElement.innerText = "00c";
-    parentDiv.append(temperatureElement);
-
     conditionText = document.createElement('div');
-    conditionText.innerText = "clowdy";
+    conditionText.innerText = "Clear";
     parentDiv.append(conditionText);
+
+    temperatureElement = document.createElement('div');
+    temperatureElement.innerText = "10°C";
+    temperatureElement.style.cssText = "font-size: 60px; position: absolute; bottom: 2px;";
+    parentDiv.append(temperatureElement);
 }
 
 function updateWeatherDisplay(currentWeather){
+    temperatureElement.innerText = Math.trunc(currentWeather.current.temp_c) + '°C';
     let locationString = `${currentWeather.location.name},  ${currentWeather.location.region}`
     cityElement.innerText = locationString;
-    temperatureElement.innerText = currentWeather.current.temp_c + ' C';
     conditionText.innerText = currentWeather.current.condition.text;
     conditionImage.src = 'http://' + currentWeather.current.condition.icon;
 }

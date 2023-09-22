@@ -1,15 +1,6 @@
-let timeDisplay = document.getElementById('time-display');
-
-window.electronAPI.onUpdateTime((event, value) => {
-    timeDisplay.textContent = value;
-})
-
 window.electronAPI.onUpdateWeather((event, value) => {
     let currentWeather = value;
-    console.log('fart = ' + currentWeather.location.country);
-
     updateWeatherDisplay(currentWeather);
-
 })
 
 const closeButton = document.getElementById('close-button');

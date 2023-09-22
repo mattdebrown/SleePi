@@ -29,8 +29,7 @@ app.on('ready', () => {
   // Create and update the clock
   function updateClock() {
     const now = new Date();
-    const time = now.toLocaleTimeString();
-    mainWindow.webContents.send('update-time', time);
+    mainWindow.webContents.send('update-time', now);
   }
 
   // Update the clock every second

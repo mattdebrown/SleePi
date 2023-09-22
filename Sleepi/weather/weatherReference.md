@@ -28,7 +28,7 @@ API key and location need to be entered in credentials.json
     is_day: 1,
     condition: {
       text: 'Partly cloudy',
-      icon: '//cdn.weatherapi.com/weather/64x64/day/116.png',
+      icon: '//cdn.weatherapi.com/weather/64x64/day/116.png',     <--- tested and confirmed swapping out 64 for 128 works
       code: 1003
     },
     wind_mph: 8.1,

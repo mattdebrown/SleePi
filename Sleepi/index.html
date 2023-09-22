@@ -1,20 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Clock App</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Stardos+Stencil&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
-<body>
-  <div id="time-display">00:00:00</div>
-  <div id="main-menu">
-    <button id="close-button" class="btn">X</button>
+  <head>
+    <title>Clock App</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Stardos+Stencil&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+  </head>
+  <body>
+    <div id="clock-face">
+      <div id="time-display">
+        <span id="hour" class="time">12</span>
+        <span id="separator" class="time">:</span>
+        <span id="minute" class="time">00</span>
+        <span id="ampm" class="time">AM</span>
+      </div>
+      <div>
+        <div id="date-display">
+          <span id="day" class="date">Monday</span>
+          <span id="month" class="date">January</span>
+          <span id="date" class="date">1</span>
+        </div>
+      </div>
+    </div>
+    <div id="main-menu">
+      <button id="close-button" class="btn">X</button>
+    </div>
     <button id="sleep-button" class="btn">ZZZ</button>
-  </div>
-  <div id="weather-summary"></div>
-</body>
-  <script src="weatherDisplay.js"></script>
+    <div id="weather-summary"></div>
+  </body>
+  <script src="displays/weatherDisplay.js"></script>
+  <script src="displays/timeDisplay.js"></script>
   <script src="renderer.js"></script>
 </html>
