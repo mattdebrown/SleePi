@@ -7,7 +7,9 @@ let mainWindow;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    fullscreen: true,
+    fullscreen: false,
+    width: 800,
+    height: 480,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), 
       nodeIntegration: true,

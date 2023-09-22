@@ -23,7 +23,7 @@ function construct(){
 
     temperatureElement = document.createElement('div');
     temperatureElement.innerText = "10°C";
-    temperatureElement.style.cssText = "font-size: 60px; position: absolute; bottom: 2px;";
+    temperatureElement.style.cssText = "font-size: 40px; position: absolute; bottom: 2px;";
     parentDiv.append(temperatureElement);
 }
 

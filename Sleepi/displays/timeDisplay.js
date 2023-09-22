@@ -10,6 +10,7 @@ let date = document.getElementById('date');
 
 const dayNames = ["Sun", "Mon", "Tues", "Wed", "Thur", "Fri", "Sat"];
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+const dateSuffix = ["--", "st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "th", "st", "nd", "rd", "th", "th", "th", "th", "th", "th", "th", "st", "nd"]
 
 window.electronAPI.onUpdateTime((event, value) => {
     let hourValue = value.getHours();
