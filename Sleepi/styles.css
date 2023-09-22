@@ -65,17 +65,17 @@ body {
 }
 
 #day {
-    font-size: 70px;
+    font-size: 65px;
     position: relative;
-    bottom: 10px;
-    right: 40px;
+    bottom: 0px;
+    right: 22px;
 }
 
 #month {
-    font-size: 36px;
+    font-size: 50px;
     position: relative;
-    bottom: -1px;
-    right: 8px;
+    bottom: 4px;
+    padding: 10px;
 }
 
 #date {
@@ -85,19 +85,19 @@ body {
 }
 
 #suffix {
-    font-size: 41px;
+    font-size: 37px;
     position: relative;
-    bottom: 20px;
+    bottom: 10px;
     right: 12px;
 }
 
 .btn {
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     color: #AAA;
     font-family: 'Stardos Stencil', cursive;
     background-color: #353b37;
-    border: 10px groove #6d6666;
+    border: 3px solid #6d6666;
     border-radius: 20px;
     font-size: 60px;
     font-weight: 500;

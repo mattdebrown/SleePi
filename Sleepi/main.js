@@ -7,9 +7,9 @@ let mainWindow;
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
-    fullscreen: false,
-    width: 800,
-    height: 480,
+    fullscreen: true,
+    // width: 800,
+    // height: 480,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), 
       nodeIntegration: true,
@@ -24,7 +24,6 @@ app.on('ready', () => {
   });
 
   ipcMain.on('sleep-button', () => {
-    console.log('main.js sleep button')
     screen.sleep();
   });
 
