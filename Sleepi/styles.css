@@ -16,81 +16,6 @@ body {
     left: 10px;
 }
 
-#clock-face {
-    display: flex;
-    flex-direction: column;
-}
-
-#time-display {
-    width: 80%; 
-    height: 80%;
-
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-
-    font-size: 140px;
-    font-weight: 400;
-}
-
-.time {
-    padding: 10px;
-}
-
-#ampm {
-    font-size: 80px;
-    position: relative;
-    top: 20px;
-}
- 
-#separator {
-    position: relative;
-    font-size: 90px;
-    bottom: 4px;
-}
-
-.date {
-    padding: 4px;
-}
-
-#date-display {
-    width: 80%; 
-    height: 80%;
-
-    display: flex;
-    justify-content: center;
-    justify-items: left;
-
-}
-
-#day {
-    font-size: 65px;
-    position: relative;
-    bottom: 0px;
-    right: 22px;
-}
-
-#month {
-    font-size: 50px;
-    position: relative;
-    bottom: 4px;
-    padding: 10px;
-}
-
-#date {
-    font-size: 80px;
-    position: relative;
-    right: 2px;
-}
-
-#suffix {
-    font-size: 37px;
-    position: relative;
-    bottom: 10px;
-    right: 12px;
-}
-
 .btn {
     width: 80px;
     height: 80px;
@@ -108,26 +33,4 @@ body {
     position: absolute;
     bottom: 10px;
     left: 10px;
-}
-
-#weather-summary {
-    margin: 10px;
-    padding: 10px;
-    align-items: right;
-    font-size: 12px;
-    background-color: #38473d;
-    border-radius: 20px;
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    height: 100px;
-    width: 160px;
-}
-
-#condition-image {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    bottom: -6px;
-    right: 2px;
 }

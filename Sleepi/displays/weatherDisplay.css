@@ -1,0 +1,21 @@
+#weather-summary {
+    margin: 10px;
+    padding: 10px;
+    align-items: right;
+    font-size: 12px;
+    background-color: #38473d;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    height: 100px;
+    width: 160px;
+}
+
+#condition-image {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    bottom: -6px;
+    right: 2px;
+}

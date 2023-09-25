@@ -7,29 +7,18 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@600&family=Stardos+Stencil&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" type="text/css" href="displays/timeDisplay.css">
+    <link rel="stylesheet" type="text/css" href="displays/weatherDisplay.css">
+    <link rel="stylesheet" type="text/css" href="displays/mainMenu.css">
   </head>
   <body>
-    <div id="clock-face">
-      <div id="time-display">
-        <span id="hour" class="time">12</span>
-        <span id="separator" class="time">:</span>
-        <span id="minute" class="time">00</span>
-        <span id="ampm" class="time">AM</span>
-      </div>
-      <div id="date-display">
-        <span id="day" class="date">Monday</span>
-        <span id="month" class="date">January</span>
-        <span id="date" class="date">1</span>
-        <span id="suffix" class="date">st</span>
-      </div>
-    </div>
-    <div id="main-menu">
-      <button id="close-button" class="btn">X</button>
-    </div>
+    <div id="clock-face"></div>
+    <div id="main-menu"></div>
     <button id="sleep-button" class="btn">ZZZ</button>
     <div id="weather-summary"></div>
     <script src="renderer.js"></script>
     <script src="displays/weatherDisplay.js"></script>
     <script src="displays/timeDisplay.js"></script>
+    <script src="displays/mainMenu.js"></script>
   </body>
 </html>
