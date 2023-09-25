@@ -1,11 +1,12 @@
-console.log('weather display exec');
-
-document.body.onload = construct;
-
 let parentDiv = document.getElementById("weather-summary");
 let cityElement;
 let temperatureElement;
 let iconElement;
+
+window.electronAPI.onUpdateWeather((event, value) => {
+    let currentWeather = value;
+    updateWeatherDisplay(currentWeather);
+})
 
 function construct(){
     conditionImage = document.createElement('img');
@@ -34,3 +35,5 @@ function updateWeatherDisplay(currentWeather){
     conditionText.innerText = currentWeather.current.condition.text;
     conditionImage.src = 'http://' + currentWeather.current.condition.icon;
 }
+
+document.body.onload = construct;

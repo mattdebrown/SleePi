@@ -16,7 +16,6 @@ app.on('ready', () => {
     },
   });
 
-  // Load your HTML file
   mainWindow.loadFile('index.html');
 
   ipcMain.on('close-button', () => {
@@ -27,13 +26,10 @@ app.on('ready', () => {
     screen.sleep();
   });
 
-  // Create and update the clock
   function updateClock() {
     const now = new Date();
     mainWindow.webContents.send('update-time', now);
   }
-
-  // Update the clock every second
   setInterval(updateClock, 1000);
 
   function updateWeather()
@@ -41,12 +37,7 @@ app.on('ready', () => {
     let currentWeather = weather.getCurrentWeather();
     mainWindow.webContents.send('update-weather', currentWeather);
   }
-
-  setInterval(updateWeather, 2000);
-  
-  mainWindow.on('closed', () => {
-    mainWindow = null;
-  });
+  setInterval(updateWeather, 600000);
 });
 
 app.on('window-all-closed', () => {
