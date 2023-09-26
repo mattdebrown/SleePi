@@ -14,3 +14,9 @@ SleePi is a bedside clock application built for the Raspberry Pi. Intended as a 
 - Customizable visual themes
 - Access to information API's
 - Text to speech capability
+
+### Hardware Setup
+
+Sleepi is an electron app that is currently being designed solely for the raspberry pi official 7' touch screen.  It is planned to have swappable rendering scripts, so in future could be developed with more flexible interfaces. 
+
+Lampi is a python program running on a Raspberry Pi Zero W.  It is running Raspberry Pi OS lite, so network and ssh information needs to be set when writing the SD card image.
