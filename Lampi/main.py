@@ -48,7 +48,7 @@ def clear():
 
 
 def start_thread():
-    app.run(host="172.16.1.81", port=5000)
+    app.run(host="lampi", port=5000)
 
 
 def start_server():
@@ -312,4 +312,4 @@ if __name__ == "__main__":
 
     lightstrip.clear()
 
-    set_state(State.NOISE)
+    set_state(noise_mode)
