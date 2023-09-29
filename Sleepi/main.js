@@ -8,15 +8,21 @@ let mainWindow;
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
     fullscreen: true,
-    // width: 800,
-    // height: 480,
     webPreferences: {
       preload: path.join(__dirname, 'preload.js'), 
       nodeIntegration: true,
     },
   });
-
+  
   mainWindow.loadFile('index.html');
+  
+  // Debug setup on for dev, on Windows
+  if (process.platform === 'win32') {
+    mainWindow.fullScreen = false;
+    mainWindow.width = 800;
+    mainWindow.height = 480;
+    mainWindow.webContents.openDevTools();
+  } 
 
   ipcMain.on('close-button', () => {
     mainWindow.close();
