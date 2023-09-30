@@ -1,9 +1,34 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const path = require('node:path'); 
 const screen = require('./screen/screen.js');
 const weather = require('./weather/weatherService.js');
 
 let mainWindow;
+
+function mainProgram(){
+  // Time updates
+  function updateClock() {
+    const now = new Date();
+    mainWindow.webContents.send('update-time', now);
+  }
+  setInterval(updateClock, 1000);
+
+  // Weather updates
+  function updateWeather()
+  {
+    let currentWeather = weather.getCurrentWeather();
+    mainWindow.webContents.send('update-weather', currentWeather);
+  }
+  setInterval(updateWeather, 600000);
+
+  ipcMain.on('close-button', () => {
+    mainWindow.close();
+  });
+
+  ipcMain.on('sleep-button', () => {
+    screen.sleep();
+  });
+}
 
 app.on('ready', () => {
   mainWindow = new BrowserWindow({
@@ -19,31 +44,11 @@ app.on('ready', () => {
   // Debug setup on for dev, on Windows
   if (process.platform === 'win32') {
     mainWindow.fullScreen = false;
-    mainWindow.width = 800;
-    mainWindow.height = 480;
+    Menu.setApplicationMenu(null);
     mainWindow.webContents.openDevTools();
   } 
 
-  ipcMain.on('close-button', () => {
-    mainWindow.close();
-  });
-
-  ipcMain.on('sleep-button', () => {
-    screen.sleep();
-  });
-
-  function updateClock() {
-    const now = new Date();
-    mainWindow.webContents.send('update-time', now);
-  }
-  setInterval(updateClock, 1000);
-
-  function updateWeather()
-  {
-    let currentWeather = weather.getCurrentWeather();
-    mainWindow.webContents.send('update-weather', currentWeather);
-  }
-  setInterval(updateWeather, 600000);
+  mainProgram();
 });
 
 app.on('window-all-closed', () => {
