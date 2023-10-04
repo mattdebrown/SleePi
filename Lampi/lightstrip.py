@@ -5,7 +5,7 @@ from color import Color, Pixel
 SPI_PORT = 0
 SPI_DEVICE = 0
 
-PIXEL_COUNT = 64
+PIXEL_COUNT = 96
 PIXEL_BRIGHTNESS = 255
 
 strip = WS2801.WS2801Pixels(PIXEL_COUNT, spi=SPI.SpiDev(SPI_PORT, SPI_DEVICE), gpio=None)

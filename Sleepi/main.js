@@ -2,6 +2,7 @@ const { app, BrowserWindow, Menu, ipcMain } = require('electron');
 const path = require('node:path'); 
 const screen = require('./screen/screen.js');
 const weather = require('./weather/weatherService.js');
+const light = require('./light/lightControl.js');
 
 let mainWindow;
 
