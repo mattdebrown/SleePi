@@ -48,7 +48,7 @@ def clear():
 
 
 def start_thread():
-    app.run(host="lampi", port=5000)
+    app.run(host="0.0.0.0", port=5000)
 
 
 def start_server():
@@ -72,7 +72,6 @@ if __name__ == "__main__":
 
     try:
         while True:
-            lightstrip.render_color(Color.random_color())
             # update_pixels_to_points()
             # for point in points:
             #     point.update_point()
@@ -81,7 +80,7 @@ if __name__ == "__main__":
 
             # print(f"current_state: {current_state}")
 
-            # update_state()
+            update_state()
 
             # current_time = time.time()
             # elapsed_time = current_time - start_time
@@ -90,24 +89,25 @@ if __name__ == "__main__":
             #     break
 
     except KeyboardInterrupt:
+        lightstrip.clear()
         pass
 
 
-# current_color = Color.random_color()
+current_color = Color.random_color()
 
 
-# def set_color(red, green, blue):
-#     print('main set color')
-#     current_color = WS2801.RGB_to_color(blue, green, red)
-#     result = WS2801.RGB_to_color(blue, green, red)
-#     for i in range(pixels.count()):
-#         pixels.set_pixel(i, result)
-#     pixels.show()
+def set_color(red, green, blue):
+    print('main set color')
+    current_color = WS2801.RGB_to_color(blue, green, red)
+    result = WS2801.RGB_to_color(blue, green, red)
+    for i in range(pixels.count()):
+        pixels.set_pixel(i, result)
+    pixels.show()
 
 
-# def clear_pixels():
-#     pixels.clear()
-#     pixels.show()
+def clear_pixels():
+    pixels.clear()
+    pixels.show()
 
 
 # class Source:
@@ -138,14 +138,14 @@ if __name__ == "__main__":
 #             self.position = 1 + self.size
 
 
-# current_color = Color.random_color()
-# blank = lightstrip.WS2801.RGB_to_color(0, 0, 0)
+current_color = Color.random_color()
+blank = lightstrip.WS2801.RGB_to_color(0, 0, 0)
 
-# points = [Source(Color.random_color()), Source(Color.random_color())]
+points = [Source(Color.random_color()), Source(Color.random_color())]
 
 
 # # create an array of pixels
-# pixels_buffer = [Pixel() for i in range(lightstrip.PIXEL_COUNT)]
+pixels_buffer = [Pixel() for i in range(lightstrip.PIXEL_COUNT)]
 
 
 # def update_pixels_to_points():
@@ -181,135 +181,135 @@ if __name__ == "__main__":
     # pixels.show()
 
 
-# def random_update():
-#     print("random_update")
-#     lightstrip.render_color(Color.random_color())
+def random_update():
+    print("random_update")
+    lightstrip.render_color(Color.random_color())
 
 
 ## State Object Definition
 
 
-# class NoiseMode:
-#     seed = 1
-#     octaves = 10
-#     time = 0
-#     rate = 0.2
-#     noise = PerlinNoise(octaves=10, seed=1)
+class NoiseMode:
+    seed = 1
+    octaves = 10
+    time = 0
+    rate = 0.2
+    noise = PerlinNoise(octaves=10, seed=1)
 
-#     def __init__(self):
-#         self.setup_noise()
+    def __init__(self):
+        self.setup_noise()
 
-#     def setup_noise(self):
-#         self.time = 0
-#         print(self.noise)
+    def setup_noise(self):
+        self.time = 0
+        print(self.noise)
 
-#     def update_noise(self):
-#         self.time += self.rate
+    def update_noise(self):
+        self.time += self.rate
 
-#         # value = self.noise([0, self.time])
+        # value = self.noise([0, self.time])
 
-#         global pixels_buffer
-#         global current_color
+        global pixels_buffer
+        global current_color
 
-#         i = 0
-#         for pixel in pixels_buffer:
-#             pixel.clear()
-#             i += 1
-#             value_r = self.noise(int(self.time))
-#             value_g = self.noise([i + 20, int(self.time)])
-#             value_b = self.noise(i)
-#             print(
-#                 f"i: {i}   value_R: {value_r}   value_G: {value_g}   value_B: {value_b}"
-#             )
+        i = 0
+        for pixel in pixels_buffer:
+            pixel.clear()
+            i += 1
+            value_r = self.noise(int(self.time))
+            value_g = self.noise([i + 20, int(self.time)])
+            value_b = self.noise(i)
+            print(
+                f"i: {i}   value_R: {value_r}   value_G: {value_g}   value_B: {value_b}"
+            )
 
-#             # trying to get perlin noise
-#             # pixel.set_color(Color(int(current_color.red) * value_r, int(current_color.green) * value_g, int(current_color.blue * 0)))
+            # trying to get perlin noise
+            # pixel.set_color(Color(int(current_color.red) * value_r, int(current_color.green) * value_g, int(current_color.blue * 0)))
 
-#             # completely random pixels
-#             pixel.set_color(Color.random_color())
+            # completely random pixels
+            pixel.set_color(Color.random_color())
 
-#         lightstrip.render_pixels(pixels_buffer)
+        lightstrip.render_pixels(pixels_buffer)
 
-#         time.sleep(self.rate)
-
-
-# class StrobeMode:
-#     on = True
-#     rate = 0.005
-
-#     def __init__(self):
-#         self.rate = 0.02
-
-#     def flip(self):
-#         self.on = not self.on
-#         if self.on:
-#             lightstrip.render_color(current_color)
-#         else:
-#             lightstrip.clear()
-
-#     def update(self):
-#         time.sleep(self.rate)
-#         self.flip()
+        time.sleep(self.rate)
 
 
-# strobe_mode = StrobeMode()
-# noise_mode = NoiseMode()
+class StrobeMode:
+    on = True
+    rate = 0.005
+
+    def __init__(self):
+        self.rate = 0.02
+
+    def flip(self):
+        self.on = not self.on
+        if self.on:
+            lightstrip.render_color(current_color)
+        else:
+            lightstrip.clear()
+
+    def update(self):
+        time.sleep(self.rate)
+        self.flip()
+
+
+strobe_mode = StrobeMode()
+noise_mode = NoiseMode()
 
 # ## State Management
 
 
-# class State(Enum):
-#     OFF = 0
-#     SOLID = 1
-#     STROBE = 2
-#     NOISE = 3
+class State(Enum):
+    OFF = 0
+    SOLID = 1
+    STROBE = 2
+    NOISE = 3
 
 
-# current_state = State.SOLID
+current_state = State.SOLID
 
 
-# def set_state(state):
-#     # print(state)
+def set_state(state):
+    # print(state)
 
-#     global current_state
-#     current_state = State(state)
-#     # print(current_state)
+    global current_state
+    current_state = State(state)
+    # print(current_state)
 
-#     if current_state == State.OFF:
-#         print("confirmed OFF")
-#         lightstrip.clear()
+    if current_state == State.OFF:
+        print("confirmed OFF")
+        lightstrip.clear()
 
-#     if current_state == State.SOLID:
-#         print("confirmed SOLID")
-#         lightstrip.render_color(current_color)
+    if current_state == State.SOLID:
+        print("confirmed SOLID")
+        lightstrip.render_color(current_color)
 
-#     if current_state == State.STROBE:
-#         print("confirmed STROBE")
-#         lightstrip.clear()
+    if current_state == State.STROBE:
+        print("confirmed STROBE")
+        lightstrip.clear()
 
-    # if(current_state == State.NOISE)
-
-
-# def update_state():
-#     if current_state == State.STROBE:
-#         # print('update strobe')
-#         strobe_mode.update()
-
-#     if current_state == State.NOISE:
-#         # print('noise update')
-#         noise_mode.update_noise()
+    if(current_state == State.NOISE)
 
 
-# set_state(current_state)
+def update_state():
+    if current_state == State.STROBE:
+        # print('update strobe')
+        strobe_mode.update()
+
+    if current_state == State.NOISE:
+        # print('noise update')
+        noise_mode.update_noise()
 
 
-# def set_color(red, green, blue):
-#     global current_color
-#     current_color = Color(red, green, blue)
-#     if current_state == State.SOLID:
-#         lightstrip.render_color(current_color)
+set_state(current_state)
 
-#     if current_state == State.STROBE:
-#         lightstrip.render_color(current_color)
+
+def set_color(red, green, blue):
+    global current_color
+    current_color = Color(red, green, blue)
+    if current_state == State.SOLID:
+        lightstrip.render_color(current_color)
+
+    if current_state == State.STROBE:
+        lightstrip.render_color(current_color)
 
 
