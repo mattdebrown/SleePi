@@ -287,7 +287,8 @@ def set_state(state):
         print("confirmed STROBE")
         lightstrip.clear()
 
-    if(current_state == State.NOISE)
+    if current_state == State.NOISE:
+        print("confirmed noise")
 
 
 def update_state():
